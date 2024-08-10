@@ -7,7 +7,6 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth_route.js';
 
-import cookieParser from 'cookie-parser';
 import powerRouter from './routes/power_route.js';
 
 import exportRouter from './routes/export_route.js';
