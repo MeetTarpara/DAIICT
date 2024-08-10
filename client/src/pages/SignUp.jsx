@@ -96,13 +96,13 @@ export default function SignUp() {
 
   return (
     <div className="h-screen flex flex-row">
-      <div className="bg-[#365921] p-20 flex flex-col justify-center items-center">
+      <div className="bg-[#365921] p-28 flex flex-col justify-center items-center">
         <h1 className="text-white font-bold font-serif text-8xl self-center">AgriLink</h1>
         <p className="text-white font-bold font-sans mt-10 self-center">Empowering Farmers through AI and community integration
         </p>
       </div>
     <div className="p-3 flex-1 bg-[#f2efdc]">
-      <div className="p-40">
+      <div className="p-48">
       <h1 className="text-6xl text-center font-bold my-16 font-serif">Sign Up</h1>
       <form className="flex flex-col gap-4">
         <input
