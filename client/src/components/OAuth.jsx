@@ -1,8 +1,8 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { app } from "../firebase";
 import { useDispatch } from "react-redux";
-import { signInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { app } from "../firebase";
+import { signInSuccess } from "../redux/user/userSlice";
 
 
 export default function OAuth() {
@@ -40,7 +40,7 @@ export default function OAuth() {
         <button
             onClick={handleGoogleClick}
             type="button"
-            className="bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95"
+            className="bg-[#783d19] text-white p-3 rounded-lg uppercase hover:opacity-95"
         >
             Continue with google
         </button>

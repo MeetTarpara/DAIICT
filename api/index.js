@@ -7,12 +7,12 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth_route.js';
 
-import powerRouter from './routes/power_route.js';
 
 import exportRouter from './routes/export_route.js';
+import powerRouter from './routes/power_route.js';
 
 import userRouter from './routes/user_routes.js';
-
+import imageRouter from './routes/image_route.js';
 import listingRouter from './routes/listing_route.js';
 import seedRouter from './routes/seed_route.js';
 import fertilizerRouter from './routes/fertilizer_route.js';
@@ -47,14 +47,12 @@ app.listen(3000,() => {
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/listing",listingRouter);
+
+app.use("/api/image",imageRouter);
 app.use("/api/subsidy/power",powerRouter);
 app.use("/api/subsidy/export",exportRouter);
 app.use("/api/subsidy/seed",seedRouter);
 app.use("/api/subsidy/fertilizer",fertilizerRouter);
-
-
-
-
 
 
 

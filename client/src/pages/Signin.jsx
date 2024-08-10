@@ -1,9 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signInStart,signInFailure,signInSuccess } from '../redux/user/userSlice';
+import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
+import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -43,7 +42,7 @@ export default function SignIn() {
       // setLoading(false);
       // setError(null);
       dispatch(signInSuccess(data));
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       // setLoading(false);
       // setError(error.message);
@@ -52,9 +51,15 @@ export default function SignIn() {
   };
 
   return (
-  
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
+  <div className='h-screen flex flex-row'>
+    <div className="bg-[#365921] p-28 flex flex-col justify-center items-center border-r-8 border-[#f2efdc]">
+        <h1 className="text-white font-bold font-serif text-8xl self-center">AgriLink</h1>
+        <p className="text-white font-bold font-sans mt-10 self-center">Empowering Farmers through AI and community integration
+        </p>
+      </div>
+    <div className='p-3 flex-1 bg-[#f2efdc] border-s-4 border-[#365921]'>
+      <div className='p-48'>
+      <h1 className='text-6xl text-center font-bold my-16 font-serif'>Sign In</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           type='email'
@@ -73,7 +78,7 @@ export default function SignIn() {
 
         <button
           disabled={loading}
-          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-[#365921] text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Sign In'}
         </button>
@@ -86,6 +91,8 @@ export default function SignIn() {
         </Link>
       </div>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
+    </div>
     </div>
   );
 }
