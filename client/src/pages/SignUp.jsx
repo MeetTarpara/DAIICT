@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import OAuth from "../components/OAuth";
 
 
@@ -60,7 +59,7 @@ export default function SignUp() {
       setError(null);
       console.log(data);
       navigate('/sign-in');
-    } 
+    }
     catch (error) {
       setLoading(false);
       setError(error.message);
@@ -96,7 +95,8 @@ export default function SignUp() {
   // };
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="bg-gradient-to-b from-[#5f6f52] via-[#a9b388] via-[#b99470] via-[#c4661f] to-[#783d19] opacity-55">
+    <div className="p-3 max-w-lg mx-auto ">
       <h1 className=" text-3xl text-center font-semibold my-7">Sign Up</h1>
       <form className="flex flex-col gap-4">
         <input
@@ -140,6 +140,7 @@ export default function SignUp() {
         </Link>
       </div>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
     </div>
   );
 }
