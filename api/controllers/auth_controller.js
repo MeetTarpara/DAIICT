@@ -1,11 +1,11 @@
-import User from "../models/user_model.js";
 import bcrypt from 'bcryptjs';
-import { errorHandler } from "../utils/error.js";
 import jwt from 'jsonwebtoken';
+import User from "../models/user_model.js";
+import { errorHandler } from "../utils/error.js";
 
 export const signup = async (req, res, next) => {
 
-  //data came from body and save 
+  //data came from body and save
   const { userName, email, password } = req.body;
 
   //for password synchronization
@@ -87,7 +87,7 @@ export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     console.log("-----------------");
-    if (user) {      
+    if (user) {
      
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
    
@@ -103,8 +103,8 @@ export const google = async (req, res, next) => {
       const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
       const hashedPassword = bcrypt.hashSync(generatedPassword, 10);
       //For Creating Unique Name
-      const newUser = new User({ userName: req.body.userName.split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-4), email: req.body.email, password: hashedPassword, avatar: req.body.photo });
-      await newUser.save();               
+      const newUser = new User({ userName: req.body.name.split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-4), email: req.body.email, password: hashedPassword, avatar: req.body.photo });
+      await newUser.save();
 
       //Generate JWT Token
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
