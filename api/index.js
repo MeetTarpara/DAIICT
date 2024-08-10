@@ -1,14 +1,18 @@
-import express from 'express';
-import mongoose  from 'mongoose';
 import cors from 'cors';
+import express from 'express';
+import mongoose from 'mongoose';
 
 
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import userRouter from './routes/user_routes.js';
 import authRouter from './routes/auth_route.js';
+
 import cookieParser from 'cookie-parser';
 import powerRouter from './routes/power_route.js';
 import exportRouter from './routes/export_route.js';
+
+import userRouter from './routes/user_routes.js';
+
 import listingRouter from './routes/listing_route.js';
 
 dotenv.config();
@@ -24,7 +28,10 @@ mongoose
 
 const app= express();
 app.use(express.json());
-app.use(cors({credentials:true}));
+
+app.use(cors({
+    credentials : true,
+}));
 app.use(cookieParser());
 
 
@@ -40,7 +47,6 @@ app.use("/api/auth",authRouter);
 app.use("/api/listing",listingRouter);
 app.use("/api/subsidy/power",powerRouter);
 app.use("/api/subsidy/export",exportRouter);
-
 
 
 
