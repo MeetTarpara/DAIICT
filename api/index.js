@@ -7,7 +7,8 @@ import dotenv from 'dotenv';
 import userRouter from './routes/user_routes.js';
 import authRouter from './routes/auth_route.js';
 import cookieParser from 'cookie-parser';
-
+import powerRouter from './routes/power_route.js';
+import exportRouter from './routes/export_route.js';
 import listingRouter from './routes/listing_route.js';
 
 dotenv.config();
@@ -37,6 +38,11 @@ app.listen(3000,() => {
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/listing",listingRouter);
+app.use("/api/subsidy/power",powerRouter);
+app.use("/api/subsidy/export",exportRouter);
+
+
+
 
 
 
