@@ -1,14 +1,19 @@
-import express from 'express';
-import mongoose  from 'mongoose';
 import cors from 'cors';
+import express from 'express';
+import mongoose from 'mongoose';
 
 
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import userRouter from './routes/user_routes.js';
 import authRouter from './routes/auth_route.js';
+
 import cookieParser from 'cookie-parser';
 import powerRouter from './routes/power_route.js';
-import exportRouter from './routes/export_route.js ';
+
+import exportRouter from './routes/export_route.js';
+
+import userRouter from './routes/user_routes.js';
+
 import listingRouter from './routes/listing_route.js';
 import seedRouter from './routes/seed_route.js';
 import fertilizerRouter from './routes/fertilizer_route.js';
@@ -26,7 +31,10 @@ mongoose
 
 const app= express();
 app.use(express.json());
-app.use(cors({credentials:true}));
+
+app.use(cors({
+    credentials : true,
+}));
 app.use(cookieParser());
 
 
@@ -44,7 +52,6 @@ app.use("/api/subsidy/power",powerRouter);
 app.use("/api/subsidy/export",exportRouter);
 app.use("/api/subsidy/seed",seedRouter);
 app.use("/api/subsidy/fertilizer",fertilizerRouter);
-
 
 
 
