@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react'
 import Home from './pages/Home';
@@ -10,10 +11,12 @@ import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import PlantDetect from './pages/PlantDetect';
 
+
+
+
 export default function App() {
   return (
     <>
-
       <BrowserRouter>
         <Header />
         <Routes>
@@ -26,7 +29,6 @@ export default function App() {
             <Route path='/create-listing' element={<CreateListing />} />
             <Route path='/plant-detect' element={<PlantDetect />} />
           </Route>
-
         </Routes>
       </BrowserRouter>
     </>

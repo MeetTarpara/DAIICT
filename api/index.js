@@ -6,6 +6,11 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth_route.js';
+
+import cookieParser from 'cookie-parser';
+import powerRouter from './routes/power_route.js';
+import exportRouter from './routes/export_route.js';
+
 import userRouter from './routes/user_routes.js';
 
 import listingRouter from './routes/listing_route.js';
@@ -23,6 +28,7 @@ mongoose
 
 const app= express();
 app.use(express.json());
+
 app.use(cors({
     credentials : true,
 }));
@@ -39,6 +45,11 @@ app.listen(3000,() => {
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/listing",listingRouter);
+app.use("/api/subsidy/power",powerRouter);
+app.use("/api/subsidy/export",exportRouter);
+
+
+
 
 
 //use middeleware for error hendaling
