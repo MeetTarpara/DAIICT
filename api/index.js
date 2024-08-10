@@ -41,7 +41,6 @@ app.use("/api/auth",authRouter);
 app.use("/api/listing",listingRouter);
 
 
-
 //use middeleware for error hendaling
 
 app.use((err,req,res,next) => {
