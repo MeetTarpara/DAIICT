@@ -30,8 +30,8 @@ const exportSchema = new mongoose.Schema({
       required: true
     },
     ApprovalStatus: {
-      type: String,
-      required: true
+      type: Boolean,
+      default: false,
     }
   });
   
