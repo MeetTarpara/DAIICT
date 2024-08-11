@@ -26,21 +26,30 @@ export const getAllDetails = async (req, res,next) => {
     }
   };
 
-  export const addExport = async (req, res ,next) => {
+  export const addExport = async (req, res, next) => {
     try {
-      // Create a new instance of the PowerSubscription model with the request body
-      const newSubsidy = new export_model(req.body);
-      
-      // Save the new subscription to the database
-      const savedSubsidy = await newSubsidy.save();
-      
-      // Respond with the created subscription
-      res.status(201).json(savedSubsidy);
+        console.log("Request Body: ", req.body);
+
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).json({ error: "Request body is empty" });
+        }
+
+        const newSubsidy = new export_model(req.body);
+        console.log("New Subsidy:", newSubsidy);
+
+        const savedSubsidy = await newSubsidy.save();
+        console.log("Saved Subsidy:", savedSubsidy);
+
+        if (!savedSubsidy) {
+            throw new Error("Failed to save subsidy");
+        }
+
+        return res.status(201).json(savedSubsidy);
     } catch (error) {
-      
+        console.error("Error:", error);
         next(error);
-      }
-  };
+    }
+};
 
   export const updateExport =  async (req, res,next) => {
     try {
