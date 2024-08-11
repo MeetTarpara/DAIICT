@@ -1,27 +1,24 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
-import { Link } from 'react-router-dom';
-import { useRef, useState, useEffect } from 'react';
 import {
   getDownloadURL,
   getStorage,
   ref,
   uploadBytesResumable,
 } from 'firebase/storage';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { app } from '../firebase';
 import {
-  updateUserStart,
-  updateUserSuccess,
-  updateUserFailure,
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
   signOutUserFailure,
   signOutUserStart,
   signOutUserSuccess,
-
+  updateUserFailure,
+  updateUserStart,
+  updateUserSuccess,
 } from '../redux/user/userSlice';
-import { useDispatch} from 'react-redux';
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -189,11 +186,11 @@ export default function Profile() {
         />
            <button
           disabled={loading}
-          className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-[#688557] text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
-        <Link className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
+        <Link className='bg-[#a36627] text-white p-3 rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
           Create Listing
         </Link>
       </form>

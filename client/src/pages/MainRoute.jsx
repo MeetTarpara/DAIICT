@@ -6,7 +6,9 @@ export default function MainRoute() {
   return (
     <div className='flex flex-row jusfity-between'>
       <Header/>
+      <div className='h-screen overflow-y-scroll'>
       <Outlet/>
+      </div>
     </div>
   )
 }
